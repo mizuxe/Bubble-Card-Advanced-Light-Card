@@ -1,39 +1,24 @@
-// Updated Advanced Light Card for Home Assistant
-
-import { changeState, changeSubButtonState } from '../../tools/global-changes.js';
-import { initializeContent } from '../../tools/init.js';
-import { addActions } from '../../tools/tap-actions.js';
-import { updateIcon } from '../../tools/style.js';
-import { handleCustomStyles } from '../../tools/style-utils.js';
-import { checkConditionsMet } from '../../tools/validate-condition.js';
-import { getIcon, isStateOn, isEntityType, getAttribute } from '../../tools/utils.js';
-import { changeIcon, changeSlider, changeName, changeStatus, changeStyle } from './changes.js';
+// Updated index.js for Advanced Light Card
 import { createStructure, createSliderStructure } from './create.js';
+import { onSliderChange, updateEntity } from '../../tools/utils.js';
 
 export function handleAdvancedLightCard(context) {
-    initializeContent(context);
-    const { entity } = context.config;
+    createStructure(context);
+    createSliderStructure(context);
 
-    if (!entity) return;
+    // Example setup for testing the UI
+    const testElement = document.createElement('p');
+    testElement.textContent = 'Advanced Light Card Loaded';
+    testElement.style.color = 'white';
+    testElement.style.background = 'blue';
+    context.appendChild(testElement);
 
-    const buttonType = context.config.button_type || 'default';
-    if (context.cardType !== `advanced-light-card-${buttonType}` && context.buttonType !== buttonType) {
-        createStructure(context);
+    // Optional: Additional setup for slider integration and entity control
+    context.elements.slider.addEventListener('input', (event) => {
+        onSliderChange(event, context);
+    });
 
-        if (buttonType === 'slider') {
-            createSliderStructure(context);
-        }
-    }
-
-    changeStatus(context);
-    changeIcon(context);
-    changeName(context);
-    changeSlider(context);
-    changeStyle(context);
-    changeState(context);
-    changeSubButtonState(context, context.content, context.elements.advancedLightCard);
-
-    handleCustomStyles(context);
-
-    addActions(context.elements.iconButton, context.config, entity);
+    context.elements.closeButton.addEventListener('click', () => {
+        context.elements.sliderContainer.classList.add('is-hidden');
+    });
 }
