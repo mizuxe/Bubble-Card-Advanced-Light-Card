@@ -147,7 +147,7 @@ class BubbleCardEditor extends LitElement {
                 {
                     'label': 'Separator',
                     'value': 'separator'
-                }
+                },
                 {
                     'label': 'Advanced Light Card',
                     'value': 'advanced-light-card' 
