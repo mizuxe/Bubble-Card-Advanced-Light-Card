@@ -148,6 +148,11 @@ class BubbleCardEditor extends LitElement {
                     'label': 'Separator',
                     'value': 'separator'
                 }
+                {
+                    'label': 'Advanced Light Card',
+                    'value': 'advanced-light-card' 
+                }
+
             ];
 
             this.listsUpdated = true;
@@ -175,6 +180,8 @@ class BubbleCardEditor extends LitElement {
                 return renderSelectEditor(this);
             case 'climate':
                 return renderClimateEditor(this);
+            case 'advanced-light-card':
+                return renderAdvancedLightEditor(this);
             case undefined:
                 return html`
                     <div class="card-config">
