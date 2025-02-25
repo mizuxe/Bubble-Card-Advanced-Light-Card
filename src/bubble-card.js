@@ -12,6 +12,7 @@ import { handleClimate } from './cards/climate/index.js';
 import { changeEditor } from './cards/pop-up/changes.js';
 import { preloadYAMLStyles } from './tools/style-utils.js';
 import BubbleCardEditor from './editor/bubble-card-editor.js';
+import { handleAdvancedLightCard } from './cards/advanced-light-card/index.js';
 
 class BubbleCard extends HTMLElement {
     editor = false;
@@ -103,6 +104,11 @@ class BubbleCard extends HTMLElement {
             // Update climate
             case 'climate' :
                 handleClimate(this);
+                break;
+
+            // Update advanced light card
+            case 'advanced-light-card':
+                handleAdvancedLightCard(this);
                 break;
         }
     }

@@ -1,0 +1,52 @@
+/* Updated styles.css for Advanced Light Card */
+
+.advanced-light-card {
+    background-color: var(--card-background-color, #ffffff);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--ha-card-box-shadow, none);
+    transition: background-color 0.3s ease;
+}
+
+.icon-button {
+    color: var(--primary-text-color);
+    transition: color 0.3s ease;
+}
+
+.card-title {
+    font-size: 1rem;
+    color: var(--primary-text-color);
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.brightness-button, .temperature-button, .color-button {
+    border: none;
+    background: transparent;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.slider-container {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.slider-container.is-visible {
+    display: block;
+}
+
+.close-button {
+    background-color: var(--error-color, #ff4d4f);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
